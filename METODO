@@ -1,1 +1,166 @@
+##########-Analisis proteomico-##########
+#Protfasta:remover secuencias invalidas
+import protfasta
+sequencess = protfasta.read_fasta('Archivo.fasta',invalid_sequence_action='remove')
+protfasta.write_fasta(sequencess, 'Archivo_de_salida.fasta')
 
+#Natsort:ordenar naturalmente los archivos
+import natsort
+  
+#localCIDER:calculo de parametros a partir de una secuencia primaria
+import os
+from localcider.sequenceParameters import SequenceParameters
+import localcider
+
+# obtener la lista de arhivos del directorio
+filelist = os.listdir(".")
+
+# Crear lista vacia
+list_of_SeqObjs = []
+ 
+# populate that list with SequenceParameters objects, which we construct from the # 
+# sequence found in each file
+for file in (natsort.natsorted(filelist)):
+      list_of_SeqObjs.append(SequenceParameters(sequenceFile=file))
+  
+#funciones presentes en localcider (funcion_localcider)
+  get_mean_hydropathy()
+  get_uversky_hydropathy()
+  get_FCR(pH=None) 
+  get_NCPR(pH=None)
+  get_isoelectric_point()
+  get_molecular_weight()
+  get_fraction_negative()
+  get_fraction_positive()
+  get_Omega()
+  get_mean_net_charge(pH=None)
+  get_phase_plot_region()
+  get_length()
+  get_fraction_disorder_promoting()
+
+#append output of the function , create empty list2 :)
+filelist2 = []
+for obj in list_of_SeqObjs:
+    filelist2.append(obj.get_kappa())
+
+##########append output of the function , create empty list3 :)
+   filelist3 = []
+   for obj in list_of_SeqObjs:
+  filelist3.append(obj.get_mean_hydropathy())
+  
+  #append output of the function , create empty list4 :)
+   filelist4 = []
+   for obj in list_of_SeqObjs:
+  filelist4.append(obj.get_FCR(pH=None))
+  
+  #append output of the function , create empty list5 :)
+   filelist5 = []
+   for obj in list_of_SeqObjs:
+  filelist5.append(obj.get_uversky_hydropathy())
+  
+  #append output of the function , create empty list6 :)
+   filelist6 = []
+   for obj in list_of_SeqObjs:
+  filelist6.append(obj.get_NCPR(pH=None))
+  
+  #append output of the function , create empty list7-
+   filelist7 = []
+   for obj in list_of_SeqObjs:
+  filelist7.append(obj.get_isoelectric_point())
+  
+  #append output of the function , create empty list8 -
+   filelist8 = []
+   for obj in list_of_SeqObjs:
+  filelist8.append(obj.get_molecular_weight())
+  
+  #append output of the function , create empty list9 -
+   filelist9 = []
+   for obj in list_of_SeqObjs:
+  filelist9.append(obj.get_fraction_negative())
+  
+  #append output of the function , create empty list10-
+   filelist10 = []
+   for obj in list_of_SeqObjs:
+  filelist10.append(obj.get_fraction_positive())
+  
+  #append output of the function , create empty list11 
+   filelist11 = []
+   for obj in list_of_SeqObjs:
+  filelist11.append(obj.get_Omega())
+  
+  #append output of the function , create empty list12 -
+   filelist12 = []
+   for obj in list_of_SeqObjs:
+  filelist12.append(obj.get_mean_net_charge(pH=None))
+  
+  #append output of the function , create empty list13 
+   filelist13 = []
+   for obj in list_of_SeqObjs:
+  filelist13.append(obj.get_phasePlotRegion())
+  
+  #append output of the function , create empty list14 -
+   filelist14 = []
+   for obj in list_of_SeqObjs:
+  filelist14.append(obj.get_length())
+  
+filelist15 = []
+   for obj in list_of_SeqObjs:
+  filelist15.append(obj.get_fraction_disorder_promoting())
+  
+######saca la secuencia#####
+filelist16 = []
+   for obj in list_of_SeqObjs:
+  filelist16.append(obj.SeqObj)
+  
+ filelist17 = []
+   for obj in list_of_SeqObjs:
+  filelist17.append(obj.get_kappa_after_phosphorylation())
+  
+  filelist18 = []
+   for obj in list_of_SeqObjs:
+  filelist18.append(obj.get_countPos())
+  
+  filelist19 = []
+   for obj in list_of_SeqObjs:
+  filelist19.append(obj.get_countNeg())
+  
+  filelist20 = []
+   for obj in list_of_SeqObjs:
+  filelist20.append(obj.get_countNeut())
+  
+  filelist21 = []
+   for obj in list_of_SeqObjs:
+  filelist21.append(obj.get_fraction_expanding(pH=None))  
+  
+  filelist23 = []
+   for obj in list_of_SeqObjs:
+  filelist23.append(obj.get_PPII_propensity(mode='hilser'))
+
+#Web example
+for i in range(500):
+    l.append(game())
+   
+    
+  
+    
+  #Excel
+   import pandas as pd
+
+#dataframe<-- excel
+df = pd.read_excel('C:/Users/Ruben/Desktop/Proyecto/Excel/At/ConGO/At-cider_sinLEAuni_conLEACCV_GO.xlsx', engine='openpyxl')
+
+df.loc[99:105]
+
+#for filelist
+df['filelist'] = (sorted(filelist))
+df['filelist'] = (natsort.natsorted(filelist))
+
+#for kappalist
+df['kappa'] = (filelist2)
+
+#df-->excel
+df.to_excel (r'C:/Users/Ruben/Desktop/Proyecto/Excel/At/ConGO/At-cider_sinLEAuni_conLEACCV_GO.xlsx', index = False, header=True)
+
+
+
+ 
