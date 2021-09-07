@@ -1,3 +1,17 @@
+########## Procesamiento de lecturas de RNA-seq ##########
+
+#Samtools: manupulacion de archivos SAM
+#Samtools view
+#-h para mantener el encabezado de las lecturas
+#-F 4 permite filtrar unicamente las lecturas que si alinearon al genoma
+samtools view -h -F 4 Pvan0h.sam > Pvan0h_viewheader.sam
+
+#Samtools sort
+samtools sort Pvan0h_viewheader.sam > Pvan0h_sort.bam
+
+#Samtools index
+samtools index Pvan0h_sort.bam
+
 ##########-Analisis proteomico-##########
 
 #Protfasta:remover secuencias invalidas
