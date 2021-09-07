@@ -1,4 +1,4 @@
-########## Procesamiento de lecturas de RNA-seq ##########
+########## Procesamiento de lecturas de RNA-seq ####LINUX-UBUNTU######
 
 #Samtools: manupulacion de archivos SAM
 #Samtools view
@@ -12,7 +12,7 @@ samtools sort Pvan0h_viewheader.sam > Pvan0h_sort.bam
 #Samtools index
 samtools index Pvan0h_sort.bam
 
-##########-Analisis proteomico-##########
+##########-Analisis proteomico-#####PYTHON-SPYDER#####
 
 #Protfasta:remover secuencias invalidas
 import protfasta
